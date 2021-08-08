@@ -16,12 +16,14 @@ function App() {
   function setNewName() {
     setName(`${faker.name.firstName()} ${faker.name.lastName()}`);
   }
+  const chaneInput = (name) => setName(name.target.value);
   return (
     <div className="App">
       <Card
         name={name}
         title={faker.name.jobTitle()}
         img={faker.image.avatar()}
+        onChangeInput={chaneInput}
       >
         {btns}
       </Card>
