@@ -1,12 +1,14 @@
 import React from "react";
 import "./App.css";
+
+
 const Card = (props) => {
-    console.log(props)
+  console.log(props);
   return (
     <div>
       <div className="card">
         <img
-          src="https://www.w3schools.com/howto/img_avatar.png"
+          src={props.img}
           alt="Avatar"
           style={{ width: "100%" }}
         ></img>
@@ -14,7 +16,7 @@ const Card = (props) => {
           <h4>
             <b>{props.name}</b>
           </h4>
-          <p>Architect & Engineer</p>
+          <p>{props.title}</p>
         </div>
       </div>
     </div>
