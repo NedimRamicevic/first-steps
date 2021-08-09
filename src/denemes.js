@@ -43,11 +43,20 @@ function Denemes() {
 
   // New component class starts here:
   class TonightsPlan extends React.Component {
+    scream() {
+      alert("nabers");
+    }
     render() {
       return fiftyFifty ? (
-        <h1>Tonight I'm going out WOOO</h1>
+        <div>
+          <h1>Tonight I'm going out WOOO</h1>
+          <button onClick={this.scream}>Nabers</button>
+        </div>
       ) : (
-        <h1>Tonight I'm going to bed WOOO</h1>
+        <div>
+          <h1>Tonight I'm going to bed WOOO</h1>
+          <button onClick={this.scream}>Nabers</button>
+        </div>
       );
     }
   }
