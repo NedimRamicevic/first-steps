@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-function Denemes() {
+export function Denemes() {
   //   const people = ["Rowe", "Prevost", "Gare"];
 
   //   const peopleLis = people.map(
@@ -62,4 +62,4 @@ function Denemes() {
   }
   return <TonightsPlan />;
 }
-export default Denemes;
+// export default Denemes;
