@@ -2,13 +2,43 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 function Denemes() {
-  const people = ["Rowe", "Prevost", "Gare"];
+  //   const people = ["Rowe", "Prevost", "Gare"];
 
-  const peopleLis = people.map(
-    (person, i) => (i === 1 ? <li key={"person_" + i}>{person}</li> : "naber")
-    // expression goes here:
-  );
+  //   const peopleLis = people.map(
+  //     (person, i) => (i === 1 ? <li key={"person_" + i}>{person}</li> : "naber    ")
+  //     // expression goes here:
+  //   );
 
-  return <div className="App">{peopleLis}</div>;
+  //   return <div className="App">{peopleLis}</div>;
+
+  const friends = [
+    {
+      title: "Yummmmmmm",
+      src: "https://content.codecademy.com/courses/React/react_photo-monkeyweirdo.jpg",
+    },
+    {
+      title: "Hey Guys!  Wait Up!",
+      src: "https://content.codecademy.com/courses/React/react_photo-earnestfrog.jpg",
+    },
+    {
+      title: "Yikes",
+      src: "https://content.codecademy.com/courses/React/react_photo-alpaca.jpg",
+    },
+  ];
+
+  // New component class starts here:
+  class Friend extends React.Component {
+    render() {
+      var friend = friends[0];
+      return (
+        <div>
+          <h1>{friend.title}</h1>
+          <img src={friend.src} />
+        </div>
+      );
+    }
+  }
+
+  return <Friend />;
 }
 export default Denemes;
