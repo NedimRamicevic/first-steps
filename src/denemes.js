@@ -95,7 +95,7 @@ export function Talker(props) {
 }
 
 export function Button(props) {
-  return <button>Click me!</button>;
+  return <button onClick={props.talk}>Click me!</button>;
 }
 
 //   return <TonightsPlan />;

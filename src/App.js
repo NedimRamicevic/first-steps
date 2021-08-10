@@ -2,7 +2,7 @@ import "./App.css";
 import React, { useState } from "react";
 import Card from "./Card";
 import faker from "faker";
-import { TonightsPlan, Welcome, Greeting } from "./denemes";
+import { TonightsPlan, Welcome, Greeting, Button, Talker } from "./denemes";
 
 function App() {
   const [name, setName] = useState("naber lan");
@@ -48,7 +48,10 @@ function App() {
       <Welcome
         name={Math.random() < 0.5 ? "naber" : "Wolfgang Amadeus Mozart  "}
       />
-      <Greeting name="Nedim" signedIn={true} />
+      <div>
+        <Greeting name="Nedim" signedIn={true} />
+        <Talker />
+      </div>
     </div>
   );
 }
