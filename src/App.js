@@ -2,6 +2,7 @@ import "./App.css";
 import React, { useState } from "react";
 import Card from "./Card";
 import faker from "faker";
+import { TonightsPlan, Welcome } from "./denemes";
 
 function App() {
   const [name, setName] = useState("naber lan");
@@ -43,6 +44,10 @@ function App() {
       >
         {btns}
       </Card>
+      <TonightsPlan />
+      <Welcome
+        name={Math.random() < 0.5 ? "naber" : "Wolfgang Amadeus Mozart  "}
+      />
     </div>
   );
 }
