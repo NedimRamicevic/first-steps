@@ -41,7 +41,7 @@ import React from "react";
 //   const fiftyFifty = Math.random() < 0.5;
 
 //   // New component class starts here:
-export function TonightsPlan() {
+export function TonightsPlan(props) {
   const scream = () => {
     alert("nabers");
   };
@@ -50,6 +50,8 @@ export function TonightsPlan() {
   return fiftyFifty ? (
     <div>
       <h1>Tonight I'm going out WOOO</h1>
+      {props.children}
+      <br></br>
       <button onClick={scream}>Nabers</button>
     </div>
   ) : (
@@ -83,19 +85,25 @@ export function Greeting(props) {
 // New component class starts here:
 
 export function Talker(props) {
-  const talk = () => {
+  const handleClick = () => {
     let speech = "";
     for (let i = 0; i < 10000; i++) {
       speech += "blah ";
     }
     alert(speech);
   };
-
-  return <Button talk={talk} />;
+  // The attribute name onClick
+  // is just a normal attribute name:
+  return (
+    <Button
+      onClick={handleClick}
+      name={props.name ? props.name : "Click me!"}
+    />
+  );
 }
 
 export function Button(props) {
-  return <button onClick={props.talk}>Click me!</button>;
+  return <button onClick={props.onClick}>{props.name}</button>;
 }
 
 //   return <TonightsPlan />;
