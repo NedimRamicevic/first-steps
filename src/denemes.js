@@ -94,13 +94,9 @@ export function Talker(props) {
   };
   // The attribute name onClick
   // is just a normal attribute name:
-  return (
-    <Button
-      onClick={handleClick}
-      name={props.name ? props.name : "Click me!"}
-    />
-  );
+  return <Button onClick={handleClick} name={props.name} />;
 }
+Talker.defaultProps = { name: "Click me!" };
 
 export function Button(props) {
   return <button onClick={props.onClick}>{props.name}</button>;
