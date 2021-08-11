@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Card from "./Card";
 import faker from "faker";
 import { TonightsPlan, Welcome, Greeting, Talker } from "./denemes";
-import { Clock } from "./states";
+import { Clock, Counter } from "./states";
 
 function App() {
   const [name, setName] = useState("naber lan");
