@@ -14,12 +14,13 @@ export function Clock() {
     </div>
   );
 }
+
 export function Counter() {
   const [count, setCount] = useState(0);
   const [name, setName] = useState("Flavio");
 
   useEffect(() => {
-    console.log(`Hi ${name} you clicked ${count} times`);
+    setInterval(() => setName(name === "Flavio" ? "Roger" : "Flavio"), 2000);
   });
 
   return (
