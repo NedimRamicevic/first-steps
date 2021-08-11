@@ -18,7 +18,7 @@ export function Clock() {
 export class Counter extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { name: "nedim" };
+    this.state = { name: "nedim", count: 1 };
   }
   list = [
     "neim",
@@ -36,7 +36,7 @@ export class Counter extends React.Component {
   componentDidMount() {
     this.TimerID = setInterval(() => {
       this.tick();
-      console.log((Math.random() * 10).toFixed(), this.list);
+      console.log((Math.random() * 10).toFixed(), "count : ", this.state.count);
     }, 1000);
   }
   componentWillUnmount() {
@@ -45,6 +45,7 @@ export class Counter extends React.Component {
   tick() {
     this.setState({
       name: this.list[(Math.random() * 10).toFixed()],
+      count: this.state.count + 1,
     });
   }
   render() {
