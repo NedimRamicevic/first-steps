@@ -15,23 +15,39 @@ export function Clock() {
   );
 }
 
-export function Counter() {
-  const [count, setCount] = useState(0);
-  const [name, setName] = useState("Flavio");
-
-  useEffect(() => {
-    setInterval(() => setName(name === "Flavio" ? "Roger" : "Flavio"), 2000);
-  });
-
-  return (
-    <div>
-      <p>
-        Hi {name} you clicked {count} times
-      </p>
-      <button onClick={() => setCount(count + 1)}>Click me</button>
-      <button onClick={() => setName(name === "Flavio" ? "Roger" : "Flavio")}>
-        Change name
-      </button>
-    </div>
-  );
+export class Counter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { name: "nedim" };
+  }
+  list = [
+    "neim",
+    "nedim",
+    "sefa",
+    "ferdi",
+    "yunus",
+    "neim",
+    "nedim",
+    "sefa",
+    "ferdi",
+    "yunus",
+    "naber",
+  ];
+  componentDidMount() {
+    this.TimerID = setInterval(() => {
+      this.tick();
+      console.log((Math.random() * 10).toFixed(), this.list);
+    }, 1000);
+  }
+  componentWillUnmount() {
+    clearInterval(this.TimerID);
+  }
+  tick() {
+    this.setState({
+      name: this.list[(Math.random() * 10).toFixed()],
+    });
+  }
+  render() {
+    return <h1>Hi I am {this.state.name}</h1>;
+  }
 }
