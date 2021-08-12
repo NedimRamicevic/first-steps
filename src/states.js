@@ -58,61 +58,12 @@ import React, { useState, useEffect } from "react";
 //   }
 // }
 
-export class Counter extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { name: "nedim", count: 1000 };
-  }
-  list = [
-    "neim",
-    "nedim",
-    "sefa",
-    "ferdi",
-    "yunus",
-    "neim",
-    "nedim",
-    "sefa",
-    "ferdi",
-    "yunus",
-    "naber",
-  ];
-  startInterval() {
-    this.TimerID = setInterval(() => {
-      this.tick();
-      console.log(this.state.count);
-    }, 1000);
-  }
-  componentDidMount() {
-    this.startInterval();
-  }
-  componentDidUpdate() {
-    clearInterval(this.TimerID); // This line saves our lives.
-    this.startInterval();
-  }
-  // componentWillUnmount() {
-  //   clearInterval(this.TimerID);
-  // }
-  click() {
-    this.setState({ count: this.state.count === 1000 ? 100 : 1000 });
-  }
-  tick() {
-    this.setState({
-      name: this.list[(Math.random() * 10).toFixed()],
-      count: this.state.count + 1,
-    });
-  }
-  render() {
-    return (
-      <div>
-        <h1>Hi I am {this.state.name}</h1>
-        <button onClick={this.click}>clicks</button>
-      </div>
-    );
-  }
-}
-
-// export function Counter() {
-//   const list = [
+// export class Counter extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = { name: "nedim", count: 1000 };
+//   }
+//   list = [
 //     "neim",
 //     "nedim",
 //     "sefa",
@@ -125,22 +76,75 @@ export class Counter extends React.Component {
 //     "yunus",
 //     "naber",
 //   ];
-//   const [counter, setCounter] = useState(1);
-//   const [name, setname] = useState(new Date());
-
-//   const tick = () => {
-//     setname(new Date());
-//   };
-//   useEffect(() => {
-//     setInterval(tick, 1000); // runs multiple times ???
-//   });
-
-//   return (
-//     <div>
-//       <h1>Hi I am {name.toISOString()}</h1>
-//     </div>
-//   );
+//   startInterval() {
+//     this.TimerID = setInterval(() => {
+//       this.tick();
+//       console.log(this.state.count);
+//     }, 1000);
+//   }
+//   componentDidMount() {
+//     this.startInterval();
+//   }
+//   componentDidUpdate() {
+//     clearInterval(this.TimerID); // This line saves our lives.
+//     this.startInterval();
+//   }
+//   // componentWillUnmount() {
+//   //   clearInterval(this.TimerID);
+//   // }
+//   click() {
+//     this.setState({ count: this.state.count === 1000 ? 100 : 1000 });
+//   }
+//   tick() {
+//     this.setState({
+//       name: this.list[(Math.random() * 10).toFixed()],
+//       count: this.state.count + 1,
+//     });
+//   }
+//   render() {
+//     return (
+//       <div>
+//         <h1>Hi I am {this.state.name}</h1>
+//         <button onClick={this.click}>clicks</button>
+//       </div>
+//     );
+//   }
 // }
+
+export function Counter() {
+  const list = [
+    "neim",
+    "nedim",
+    "sefa",
+    "ferdi",
+    "yunus",
+    "neim",
+    "nedim",
+    "sefa",
+    "ferdi",
+    "yunus",
+    "naber",
+  ];
+  const [counter, setCounter] = useState(1);
+  const [name, setname] = useState("nedim");
+
+  const tick = () => {
+    setname(list[(Math.random() * 10).toFixed()]);
+    setCounter((x) => x + 1);
+    console.log(counter);
+  };
+  useEffect(() => {
+    const intervalId = setInterval(tick, 1000); // runs multiple times ???
+
+    return () => clearInterval(intervalId); // Prevents running "tick" multiple times -(without this line it gets infinite loop)
+  });
+
+  return (
+    <div>
+      <h1>Hi I am {name}</h1>
+    </div>
+  );
+}
 
 export class Clock extends React.Component {
   constructor(props) {
