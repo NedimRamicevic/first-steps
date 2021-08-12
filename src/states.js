@@ -68,13 +68,14 @@ export function Counter() {
   ];
   const [counter, setCounter] = useState(1);
   const [name, setname] = useState("nedim");
+
   const tick = () => {
     setname(list[counter]);
     setCounter(counter === 10 ? 0 : counter + 1);
     console.log("xxxxxxxx", counter);
   };
   useEffect(() => {
-    setInterval(tick, 1000);
+    setInterval(tick, 1000); // runs multiple times ???
   });
 
   return (
