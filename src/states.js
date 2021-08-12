@@ -79,7 +79,7 @@ export function Counter() {
 
   return (
     <div>
-      <h1>Hi I am {name.toLocaleTimeString()}</h1>
+      <h1>Hi I am {name.toISOString()}</h1>
     </div>
   );
 }
