@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 export function Clock() {
   const [date, setDate] = useState(new Date());
   const tick = () => setDate(new Date());
+  console.log("naber");
 
   useEffect(() => {
     setInterval(tick, 1000);
@@ -67,12 +68,10 @@ export function Counter() {
     "naber",
   ];
   const [counter, setCounter] = useState(1);
-  const [name, setname] = useState("nedim");
+  const [name, setname] = useState(new Date());
 
   const tick = () => {
-    setname(list[counter]);
-    setCounter(counter === 10 ? 0 : counter + 1);
-    console.log("xxxxxxxx", counter);
+    setname(new Date());
   };
   useEffect(() => {
     setInterval(tick, 1000); // runs multiple times ???
@@ -80,7 +79,7 @@ export function Counter() {
 
   return (
     <div>
-      <h1>Hi I am {name}</h1>
+      <h1>Hi I am {name.toLocaleTimeString()}</h1>
     </div>
   );
 }
