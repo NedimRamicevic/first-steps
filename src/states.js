@@ -16,6 +16,8 @@ import React, { useState, useEffect } from "react";
 //   );
 // }
 
+// // high-level !!!!!!
+
 // export class Clock extends React.Component {
 //   constructor(props) {
 //     super(props);
@@ -59,7 +61,7 @@ import React, { useState, useEffect } from "react";
 export class Counter extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { name: "nedim", count: 1 };
+    this.state = { name: "nedim", count: 1000 };
   }
   list = [
     "neim",
@@ -74,15 +76,25 @@ export class Counter extends React.Component {
     "yunus",
     "naber",
   ];
-  componentDidMount() {
+  startInterval() {
     this.TimerID = setInterval(() => {
       this.tick();
       console.log(this.state.count);
     }, 1000);
   }
+  componentDidMount() {
+    this.startInterval();
+  }
+  componentDidUpdate() {
+    clearInterval(this.TimerID); // This line saves our lives.
+    this.startInterval();
+  }
   // componentWillUnmount() {
   //   clearInterval(this.TimerID);
   // }
+  click() {
+    this.setState({ count: this.state.count === 1000 ? 100 : 1000 });
+  }
   tick() {
     this.setState({
       name: this.list[(Math.random() * 10).toFixed()],
@@ -90,7 +102,12 @@ export class Counter extends React.Component {
     });
   }
   render() {
-    return <h1>Hi I am {this.state.name}</h1>;
+    return (
+      <div>
+        <h1>Hi I am {this.state.name}</h1>
+        <button onClick={this.click}>clicks</button>
+      </div>
+    );
   }
 }
 
