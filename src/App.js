@@ -4,6 +4,7 @@ import Card from "./Card";
 import faker from "faker";
 import { TonightsPlan, Welcome, Greeting, Talker } from "./denemes";
 import { Clock, Counter } from "./states";
+import AppFunction from "./hooks";
 
 function App() {
   const [name, setName] = useState("naber lan");
@@ -58,6 +59,9 @@ function App() {
       <div>
         <Clock />
         <Counter />
+      </div>
+      <div>
+        <AppFunction />
       </div>
     </div>
   );
